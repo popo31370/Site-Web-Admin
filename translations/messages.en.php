@@ -1,9 +1,17 @@
 <?php
 return [
-    'title' => 'List of Medications',
+    'siteName' => 'Me Sick ?',
+    'listMedic' => 'List of Medications',
     'id' => 'Id',
-    'nameFR' => 'Disease Name (French)',
-    'nameEn' => 'Disease Name (English)',
-    'actions' => 'Actions'
+    'medicNameFR' => 'Medication Name (in French)',
+    'medicNameEn' => 'Medication Name (in English)',
+    'addMedic' => 'Add medication',
+    'actions' => 'Actions',
+    'search' => 'Search',
+    'pPage'=> 'Previous page',
+    "nPage"=> 'Next Page',
+    "logout"=> 'Logout',
+    "french"=> 'French',
+    "english"=> 'English'
 ];
 ?>

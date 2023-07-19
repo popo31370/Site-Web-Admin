@@ -1,9 +1,17 @@
 <?php
 return [
-    'title' => 'Liste des Médicaments',
+    'siteName' => 'Moi Malade ?',
+    'listMedic' => 'Liste des Médicaments',
     'id' => 'Id',
-    'nameFR' => 'Nom maladies en français',
-    'nameEn' => 'Nom maladies en anglais',
-    'actions' => 'Actions'
+    'medicNameFR' => 'Nom médicament en français',
+    'medicNameEn' => 'Nom médicament en anglais',
+    'addMedic' => 'Ajouter un médicament',
+    'actions' => 'Actions',
+    'search' => 'Rechercher',
+    'pPage'=> 'Page précédente',
+    "nPage"=> 'Page suivante',
+    "logout"=> 'Déconnexion',
+    "french"=> 'Français',
+    "english"=> 'Anglais'
 ];
 ?>
