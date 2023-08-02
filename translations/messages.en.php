@@ -12,6 +12,16 @@ return [
     "nPage"=> 'Next Page',
     "logout"=> 'Logout',
     "french"=> 'French',
-    "english"=> 'English'
+    "english"=> 'English',
+    "symptoms"=> 'Symptoms',
+    "names"=> 'Names',
+    "medications"=> 'Medications',
+    "description"=> 'Description',
+    "sympDesc"=> 'Symptoms Description',
+    "medicDesc"=> 'Medications Description',
+    "whoIs"=> 'WhoIs',
+    "testProc"=> 'Tests Procedure',
+    "dPage"=> 'First Page',
+    "fPage"=> 'Last Page',
 ];
 ?>

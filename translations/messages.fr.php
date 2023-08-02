@@ -12,6 +12,16 @@ return [
     "nPage"=> 'Page suivante',
     "logout"=> 'Déconnexion',
     "french"=> 'Français',
-    "english"=> 'Anglais'
+    "english"=> 'Anglais',
+    "symptoms"=> 'Symptômes',
+    "names"=> 'Noms',
+    "medications"=> 'Médicaments',
+    "description"=> 'Description',
+    "sympDesc"=> 'Description Symptômes',
+    "medicDesc"=> 'Description Médicaments',
+    "whoIs"=> 'Personne à risque',
+    "testProc"=> 'Procedure de Test',
+    "dPage"=> 'Première Page',
+    "fPage"=> 'Dernière Page',
 ];
 ?>
