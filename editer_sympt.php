@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$url = "http://localhost:8080/api/medications/";
+$url = "http://localhost:8080/api/symptoms/";
 
 // Configuration de la requête cURL
 $ch = curl_init();
@@ -75,15 +75,15 @@ include 'menu.php';
 <div class="container">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title text-center">Editer un médicament</h2>
-                <form method="POST" action="editer_medic_post.php" enctype="multipart/form-data">
+                <h2 class="card-title text-center">Editer un symptôme</h2>
+                <form method="POST" action="editer_sympt_post.php" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="nomFr">Nom du médicament en français</label>
+                        <label for="nomFr">Nom du symptôme en français</label>
                         <input type="text" class="form-control" id="nomFr" name="nomFr" required value="<?php echo $response['nomFr']; ?>">
                         <input id="id" name="id" type="hidden" value="<?= $_GET['id']; ?>">
                     </div>
                     <div class="form-group">
-                        <label for="nomEn">Nom du médicament en anglais</label>
+                        <label for="nomEn">Nom du symptôme en anglais</label>
                         <input type="text" class="form-control" id="nomEn" name="nomEn" required value="<?php echo $response['nomEn']; ?>">
                     </div>
                     <div class="text-center">

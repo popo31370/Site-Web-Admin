@@ -19,7 +19,7 @@ include('translations/translation.php');
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="symptoms.php"><?php echo $translations['symptoms']; ?></a>
-                    <a class="dropdown-item" href="disease.php"><?php echo $translations['names']; ?></a>
+                    <a class="dropdown-item" href="name.php"><?php echo $translations['names']; ?></a>
                     <a class="dropdown-item" href="#"><?php echo $translations['medications']; ?></a>
                     <a class="dropdown-item" href="description.php"><?php echo $translations['description']; ?></a>
                     <a class="dropdown-item" href="sympt_desc.php"><?php echo $translations['sympDesc']; ?></a>

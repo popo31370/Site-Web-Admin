@@ -59,6 +59,10 @@
         .btn-custom:hover {
             background-color: #A399F0;
         }
+        .custom-input {
+        width: 100%; /* Set the width to 100% to make it wider */
+        height: 40px; /* You can adjust the height to your desired value */
+        }
 
 
 
@@ -71,32 +75,9 @@
 }
 </style>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="logo_moi_malade.png" alt="Logo" style="width: 75px;">
-        Moi Malade
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="symptoms.php">Symptômes</a>
-                    <a class="dropdown-item" href="disease.php">Maladies</a>
-                    <a class="dropdown-item" href="medication.php">Médicaments</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Déconnexion</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php
+include 'menu.php';
+?>
 
 
 
@@ -107,22 +88,27 @@
 
 <div class="container">
     <div class="card">
-    <div class="card-body">
-    <h2 class="card-title text-center mb-4">Ajouter un médicament</h2>
-    <form action="add_medication_post.php" method="post">
-        <div class="form-group">
-            <label for="nomFr">Nom du médicament en français</label>
-            <input type="text" class="form-control" id="nomFr" name="nomFr" required>
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Ajouter une description</h2>
+            <form action="add_desc_post.php" method="post">
+                <div class="form-group">
+                    <label for="nomFr">Description en français</label>
+                    <input type="text" class="form-control custom-input" id="nomFr" name="nomFr" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomEn">Description en anglais</label>
+                    <input type="text" class="form-control custom-input" id="nomEn" name="nomEn" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom" style="background-color: #B7ACF7;">Ajouter</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="nomEn">Nom du médicament en anglais</label>
-            <input type="text" class="form-control" id="nomEn" name="nomEn" required>
-        </div>
-        <div class="text-center">
-            <button type="submit" class="btn btn-custom" style="background-color: #B7ACF7;">Ajouter</button>
-        </div>
-    </form>
+    </div>
 </div>
+
+
+
 
     </div>
 </div>

@@ -1,18 +1,14 @@
 <?php
 session_start();
-include('translations/translation.php');
 
 
 // URL de l'API que vous souhaitez appeler
-$url = "http://localhost:8080/api/medications";
+$url = "http://localhost:8080/api/names";
 
 // Configuration de la requête cURL
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 // Exécution de la requête GET
 $response = curl_exec($ch);
@@ -28,7 +24,7 @@ curl_close($ch);
 // Traitement de la réponse
 if ($response) {
     $response= json_decode($response,true);
-    $response= $response['_embedded']['medicationsList'];
+    $response= $response['_embedded']['nameList'];
     //foreach($response as $mydata)
 
     //{
@@ -42,6 +38,7 @@ if ($response) {
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -146,7 +143,7 @@ include 'menu.php';
 
     <div class="container">
     <br/>
-    <h2><?php echo $translations['listMedic']; ?></h2><br/>
+    <h2>Liste des Maladies </h2><br/>
     <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -183,17 +180,17 @@ $currentPage = array_slice($response, $start, $limit);
 // Total des pages
 $totalPages = ceil(count($response) / $limit);
 ?>
-<a href="add_medication.php" class="add-medication-link">
+<a href="add_disease.php" class="add-medication-link">
     <span class="material-symbols-outlined">add_circle</span>
-    <span class="link-text"><?php echo $translations['addMedic']; ?></span>
+    <span class="link-text">Ajouter une maladie</span>
 </a>
 <br/>
 <table class="table table-striped">
     <thead class="table-lign">
         <tr>
             <th><?php echo $translations['id']; ?></th>
-            <th><?php echo $translations['medicNameFR']; ?></th>
-            <th><?php echo $translations['medicNameEn']; ?></th>
+            <th><?php echo $translations['nameFR']; ?></th>
+            <th><?php echo $translations['nameEn']; ?></th>
             <th><?php echo $translations['actions']; ?></th>
         </tr>
     </thead>
@@ -204,10 +201,10 @@ $totalPages = ceil(count($response) / $limit);
                 <td><?= $mydata['nomFr']; ?></td>
                 <td><?= $mydata['nomEn']; ?></td>
                 <td>
-                <a href="supprimer_medic.php?id=<?= $mydata['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                <a href="supprimer_name.php?id=<?= $mydata['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
                     <span class="material-symbols-outlined delete-icon">delete</span>
                 </a>                
-                <a href="editer_medic.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined">edit</span></a>
+                <a href="editer_name.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined">edit</span></a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('translations/translation.php');
 
 
 // URL de l'API que vous souhaitez appeler
@@ -9,6 +10,9 @@ $url = "http://localhost:8080/api/symptoms";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 // Exécution de la requête GET
 $response = curl_exec($ch);
@@ -50,6 +54,67 @@ if ($response) {
             float: right;
             margin-right: 20px;
         }
+                .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* Add any additional styles you want for the pagination container */
+        }
+
+        .pagination-group {
+        display: flex;
+        align-items: center;
+        /* Add any additional styles you want for the pagination groups */
+        }
+
+        .pagination-separator {
+        margin: 0 10px; /* Adjust the spacing as needed */
+        /* Add any additional styles you want for the separator */
+        }
+        /* CSS */
+        .container {
+            /* Add any additional styles for the container if needed */
+        }
+
+        .search-bar {
+            position: relative;
+            /* Add any additional styles for the search bar container if needed */
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            /* Add any additional styles for the input group if needed */
+        }
+
+        .search {
+            /* Add any additional styles for the input field if needed */
+        }
+
+        #search_result {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            /* Add any additional styles for the search result span if needed */
+        }
+        /* CSS */
+        .add-medication-link {
+            text-decoration: none;
+            color: #8FC067;
+            font-size: 18px; /* Adjust the font size as needed */
+            display: flex;
+            align-items: center;
+        }
+
+        .material-icons {
+            font-family: 'Material Icons'; /* Use the Material Icons font family */
+            font-size: 24px; /* Adjust the icon font size */
+            margin-right: 5px; /* Adjust the spacing between the icon and the text */
+        }
+
+        .link-text {
+            font-size: inherit; /* Use the same font size as the parent element */
+        }
     </style>
 </head>
 <body>
@@ -59,37 +124,9 @@ if ($response) {
 }
 </style>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="logo_moi_malade.png" alt="Logo" style="width: 75px;">
-        Moi Malade
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="symptoms.php">Symptômes</a>
-                    <a class="dropdown-item" href="disease.php">Names</a>
-                    <a class="dropdown-item" href="medication.php">Médicaments</a>
-                    <a class="dropdown-item" href="description.php">Description</a>
-                    <a class="dropdown-item" href="sympt_desc.php">Symptômes Description</a>
-                    <a class="dropdown-item" href="medic_desc.php">Médicaments Description</a>
-                    <a class="dropdown-item" href="whois.php">WhoIs</a>
-                    <a class="dropdown-item" href="tests_proc.php">Tests Procedure</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Déconnexion</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php
+include 'menu.php';
+?>
 
 <!-- Inclure les fichiers CSS et JavaScript de Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -98,16 +135,16 @@ if ($response) {
 
     <div class="container">
     <br/>
-    <h2>Liste des Symptômes</h2><br/>
+    <h2><?php echo $translations['listSympt']; ?></h2><br/>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="search-bar">
                     <form action="#" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Rechercher...">
+                            <input type="text" class="form-control" name="search" placeholder=<?php echo $translations['search']; ?>>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit">Rechercher</button>
+                                <button class="btn btn-outline-secondary" type="submit"><?php echo $translations['search']; ?></button>
                             </div>
                         </div>
                     </form>
@@ -133,15 +170,18 @@ $currentPage = array_slice($response, $start, $limit);
 // Total des pages
 $totalPages = ceil(count($response) / $limit);
 ?>
-<a href="add_symptom.php" style="text-decoration: underline; color: #8FC067;">Ajouter un symptôme</a>
-
+<a href="add_symptom.php" class="add-medication-link">
+    <span class="material-symbols-outlined">add_circle</span>
+    <span class="link-text"><?php echo $translations['addMedic']; ?></span>
+</a>
+<br/>
     <table class="table table-striped">
         <thead class="table-lign">
             <tr>
-                <th>Id</th>
-                <th>Nom symptôme en français</th>
-                <th>Nom symptôme en anglais</th>
-                <th>Actions</th>
+                <th><?php echo $translations['id']; ?></th>
+                <th><?php echo $translations['symptNameFR']; ?></th>
+                <th><?php echo $translations['symptNameEn']; ?></th>
+                <th><?php echo $translations['actions']; ?></th>
             </tr>
         </thead>
         <tbody>
@@ -151,8 +191,10 @@ $totalPages = ceil(count($response) / $limit);
                     <td><?= $mydata['nomFr']; ?></td>
                     <td><?= $mydata['nomEn']; ?></td>
                     <td>
-                    <a href="supprimer_sympt.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined delete-icon">delete</span></a>
-                    <span class="material-symbols-outlined">edit</span>
+                    <a href="supprimer_sympt.php?id=<?= $mydata['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
+                        <span class="material-symbols-outlined delete-icon">delete</span>
+                    </a>   
+                    <a href="editer_sympt.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined">edit</span></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -160,17 +202,23 @@ $totalPages = ceil(count($response) / $limit);
     </table>
 <!-- Afficher les liens de pagination -->
 <div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="?page=<?= $page - 1; ?>" class="text-dark">&laquo; Page précédente</a>
-    <?php endif; ?>
+    <div class="pagination-group">
+        <?php if ($page > 1): ?>
+            <a href="?page=1" class="text-dark">&laquo; <?php echo $translations['dPage']; ?></a>
+            <a href="?page=<?= $page - 1; ?>" class="text-dark">&laquo; <?php echo $translations['pPage']; ?></a>
+        <?php endif; ?>
+    </div>
 
     <?php if ($page > 1 && $page < $totalPages): ?>
         <span class="pagination-separator">&nbsp;</span>
     <?php endif; ?>
 
-    <?php if ($page < $totalPages): ?>
-        <a href="?page=<?= $page + 1; ?>" class="text-dark">Page suivante &raquo;</a>
-    <?php endif; ?>
+    <div class="pagination-group">
+        <?php if ($page < $totalPages): ?>
+            <a href="?page=<?= $page + 1; ?>" class="text-dark"><?php echo $translations['nPage']; ?> &raquo;</a>
+            <a href="?page=<?= $totalPages; ?>" class="text-dark"><?php echo $translations['fPage']; ?> &raquo;</a>
+        <?php endif; ?>
+    </div>
 </div>
 </div>
 </body>

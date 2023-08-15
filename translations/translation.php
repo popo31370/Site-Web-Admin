@@ -26,4 +26,7 @@ if(file_exists($langFile)) {
     // Si le fichier de langue n'existe pas, utiliser le français par défaut
     $translations = include('translations/messages.fr.php');
 }
+
+
 ?>
+

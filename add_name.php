@@ -71,33 +71,9 @@
 }
 </style>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="logo_moi_malade.png" alt="Logo" style="width: 75px;">
-        Moi Malade
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="symptoms.php">Symptômes</a>
-                    <a class="dropdown-item" href="disease.php">Maladies</a>
-                    <a class="dropdown-item" href="medication.php">Médicaments</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Déconnexion</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<?php
+include 'menu.php';
+?>
 
 
 <!-- Inclure les fichiers CSS et JavaScript de Bootstrap -->
@@ -108,14 +84,14 @@
 <div class="container">
     <div class="card">
     <div class="card-body">
-    <h2 class="card-title text-center mb-4">Ajouter un médicament</h2>
-    <form action="add_medication_post.php" method="post">
+    <h2 class="card-title text-center mb-4">Ajouter un nom</h2>
+    <form action="add_name_post.php" method="post">
         <div class="form-group">
-            <label for="nomFr">Nom du médicament en français</label>
+            <label for="nomFr">Nom en français</label>
             <input type="text" class="form-control" id="nomFr" name="nomFr" required>
         </div>
         <div class="form-group">
-            <label for="nomEn">Nom du médicament en anglais</label>
+            <label for="nomEn">Nom en anglais</label>
             <input type="text" class="form-control" id="nomEn" name="nomEn" required>
         </div>
         <div class="text-center">
