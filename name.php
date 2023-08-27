@@ -3,12 +3,15 @@ session_start();
 
 
 // URL de l'API que vous souhaitez appeler
-$url = "http://localhost:8080/api/names";
+$url = "http://localhost:8080/api/disease";
 
 // Configuration de la requête cURL
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 // Exécution de la requête GET
 $response = curl_exec($ch);
@@ -24,7 +27,7 @@ curl_close($ch);
 // Traitement de la réponse
 if ($response) {
     $response= json_decode($response,true);
-    $response= $response['_embedded']['nameList'];
+    $response= $response['_embedded']['diseaseListList'];
     //foreach($response as $mydata)
 
     //{
@@ -143,7 +146,7 @@ include 'menu.php';
 
     <div class="container">
     <br/>
-    <h2>Liste des Maladies </h2><br/>
+    <h2><?php echo $translations['diseaseList']; ?></h2><br/>
     <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -182,7 +185,7 @@ $totalPages = ceil(count($response) / $limit);
 ?>
 <a href="add_disease.php" class="add-medication-link">
     <span class="material-symbols-outlined">add_circle</span>
-    <span class="link-text">Ajouter une maladie</span>
+    <span class="link-text"><?php echo $translations['addDisease']; ?></span>
 </a>
 <br/>
 <table class="table table-striped">
@@ -198,13 +201,13 @@ $totalPages = ceil(count($response) / $limit);
         <?php foreach ($currentPage as $mydata): ?>
             <tr>
                 <td><?= $mydata['id']; ?></td>
-                <td><?= $mydata['nomFr']; ?></td>
-                <td><?= $mydata['nomEn']; ?></td>
+                <td><?= $mydata['name']['nomFr']; ?></td>
+                <td><?= $mydata['name']['nomEn']; ?></td>
                 <td>
                 <a href="supprimer_name.php?id=<?= $mydata['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');">
                     <span class="material-symbols-outlined delete-icon">delete</span>
                 </a>                
-                <a href="editer_name.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined">edit</span></a>
+                <a href="editer_disease.php?id=<?= $mydata['id']; ?>"><span class="material-symbols-outlined">edit</span></a>
                 </td>
             </tr>
         <?php endforeach; ?>

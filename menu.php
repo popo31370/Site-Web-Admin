@@ -4,7 +4,7 @@ include('translations/translation.php');
 ?>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="name.php">
         <img src="logo_moi_malade.png" alt="Logo" style="width: 75px;">
         <?php echo $translations['siteName']; ?>
     </a>
@@ -18,13 +18,9 @@ include('translations/translation.php');
                     Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="name.php"><?php echo $translations['diseases']; ?></a>
                     <a class="dropdown-item" href="symptoms.php"><?php echo $translations['symptoms']; ?></a>
-                    <a class="dropdown-item" href="name.php"><?php echo $translations['names']; ?></a>
-                    <a class="dropdown-item" href="#"><?php echo $translations['medications']; ?></a>
-                    <a class="dropdown-item" href="description.php"><?php echo $translations['description']; ?></a>
-                    <a class="dropdown-item" href="sympt_desc.php"><?php echo $translations['sympDesc']; ?></a>
-                    <a class="dropdown-item" href="medic_desc.php"><?php echo $translations['medicDesc']; ?></a>
-                    <a class="dropdown-item" href="whois.php"><?php echo $translations['whoIs']; ?></a>
+                    <a class="dropdown-item" href="medication.php"><?php echo $translations['medications']; ?></a>
                     <a class="dropdown-item" href="tests_proc.php"><?php echo $translations['testProc']; ?></a>
                 </div>
             </li>
@@ -42,7 +38,7 @@ include('translations/translation.php');
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><?php echo $translations['logout']; ?></a>
+                <a class="nav-link" href="index.php"><?php echo $translations['logout']; ?></a>
             </li>
         </ul>
     </div>

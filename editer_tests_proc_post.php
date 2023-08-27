@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$url = "http://localhost:8080/api/symptoms/";
+$url = "http://localhost:8080/api/testsprocedures/";
 
 // Configuration de la requête cURL
 $ch = curl_init();
@@ -20,7 +20,7 @@ $response = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Erreur cURL : ' . curl_error($ch);
 }
-header("Location: symptoms.php");
+header("Location: tests_proc.php");
 
 
 // Fermeture de la connexion cURL

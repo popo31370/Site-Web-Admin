@@ -15,7 +15,7 @@
     ?>
 
     <div class="container mt-4">
-        <h2>Ajouter une maladie</h2>
+        <h2><?php echo $translations['addDisease']; ?></h2>
         <form action="add_disease_post.php" method="post">
 
             <!-- Using the Bootstrap Grid System with Flex -->
@@ -26,28 +26,28 @@
 
                     <!-- Nom de la maladie (FR) -->
                     <div class="form-group">
-                        <label for="diseaseNameFR">Nom de la maladie (FR):</label>
+                        <label for="diseaseNameFR"><?php echo $translations['diseaseNameFr']; ?></label>
                         <input type="text" class="form-control" id="diseaseNameFR" name="diseaseNameFR" placeholder="Entrez le nom en français">
                     </div>
 
                     <!-- Descriptions (FR) -->
                     <div class="form-group">
-                        <label for="diseaseDescriptionFR">Description de la maladie (FR):</label>
+                        <label for="diseaseDescriptionFR"><?php echo $translations['descDiseaseFR']; ?></label>
                         <textarea class="form-control" id="diseaseDescriptionFR" name="diseaseDescriptionFR" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="medDescriptionFR">Description des médicaments (FR):</label>
+                        <label for="medDescriptionFR"><?php echo $translations['descMedicFR']; ?></label>
                         <textarea class="form-control" id="medDescriptionFR" name="medDescriptionFR" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="symptomsDescriptionFR">Description des symptômes (FR):</label>
+                        <label for="symptomsDescriptionFR"><?php echo $translations['descSympFR']; ?></label>
                         <textarea class="form-control" id="symptomsDescriptionFR" name="symptomsDescriptionFR" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="riskPeopleDescriptionFR">Description des personnes à risque (FR):</label>
+                        <label for="riskPeopleDescriptionFR"><?php echo $translations['descWhoFR']; ?></label>
                         <textarea class="form-control" id="riskPeopleDescriptionFR" name="riskPeopleDescriptionFR" rows="3"></textarea>
                     </div>
 
@@ -58,32 +58,32 @@
 
                     <!-- Nom de la maladie (EN) -->
                     <div class="form-group">
-                        <label for="diseaseNameEN">Nom de la maladie (EN):</label>
+                        <label for="diseaseNameEN"><?php echo $translations['diseaseNameEn']; ?></label>
                         <input type="text" class="form-control" id="diseaseNameEN" name="diseaseNameEN" placeholder="Entrez le nom en anglais">
                     </div>
 
                     <!-- Descriptions (EN) -->
                     <div class="form-group">
-                        <label for="diseaseDescriptionEN">Description de la maladie (EN):</label>
+                        <label for="diseaseDescriptionEN"><?php echo $translations['descDiseaseEN']; ?></label>
                         <textarea class="form-control" id="diseaseDescriptionEN" name="diseaseDescriptionEN" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="medDescriptionEN">Description des médicaments (EN):</label>
+                        <label for="medDescriptionEN"><?php echo $translations['descMedicEN']; ?></label>
                         <textarea class="form-control" id="medDescriptionEN" name="medDescriptionEN" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="symptomsDescriptionEN">Description des symptômes (EN):</label>
+                        <label for="symptomsDescriptionEN"><?php echo $translations['descSympEN']; ?></label>
                         <textarea class="form-control" id="symptomsDescriptionEN" name="symptomsDescriptionEN" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="riskPeopleDescriptionEN">Description des personnes à risque (EN):</label>
+                        <label for="riskPeopleDescriptionEN"><?php echo $translations['descWhoEN']; ?></label>
                         <textarea class="form-control" id="riskPeopleDescriptionEN" name="riskPeopleDescriptionEN" rows="3"></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-custom" style="background-color: #B7ACF7;">Ajouter</button>
+                        <button type="submit" class="btn btn-custom" style="background-color: #B7ACF7;"><?php echo $translations['add']; ?></button>
                     </div>
                 </div>
             </div>

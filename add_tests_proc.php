@@ -1,36 +1,3 @@
-<?php
-session_start();
-
-$url = "http://localhost:8080/api/symptoms/";
-
-// Configuration de la requête cURL
-$ch = curl_init();
-
-
-
-$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
-/*Récupération du champ "id"*/
-if(isset($_GET['id'])) {
-    $url= $url . $_GET['id'];
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-    $response = curl_exec($ch);
-    $response= json_decode($response,true);
-    // Vérification des erreurs
-    if (curl_errno($ch)) {
-        echo 'Erreur cURL : ' . curl_error($ch);
-    }
-}
-
-
-
-// Fermeture de la connexion cURL
-curl_close($ch);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,19 +80,18 @@ include 'menu.php';
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title text-center">Editer un symptôme</h2>
-            <form method="POST" action="editer_sympt_post.php" enctype="multipart/form-data">
+            <h2 class="card-title text-center">Ajouter un test et procédure</h2>
+            <form action="add_tests_proc_post.php" method="post">
                 <div class="form-group">
-                    <label for="nomFr">Nom du symptôme en français</label>
-                    <input type="text" class="form-control" id="nomFr" name="nomFr" required value="<?php echo $response['nomFr']; ?>">
-                    <input id="id" name="id" type="hidden" value="<?= $_GET['id']; ?>">
+                    <label for="nomFr">Nom en français</label>
+                    <input type="text" class="form-control" id="nomFr" name="nomFr" required>
                 </div>
                 <div class="form-group">
-                    <label for="nomEn">Nom du symptôme en anglais</label>
-                    <input type="text" class="form-control" id="nomEn" name="nomEn" required value="<?php echo $response['nomEn']; ?>">
+                    <label for="nomEn">Nom en anglais</label>
+                    <input type="text" class="form-control" id="nomEn" name="nomEn" required>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-custom">Mettre à jour</button>
+                    <button type="submit" class="btn btn-custom">Ajouter</button>
                 </div>
             </form>
         </div>

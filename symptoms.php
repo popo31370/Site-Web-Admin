@@ -172,7 +172,7 @@ $totalPages = ceil(count($response) / $limit);
 ?>
 <a href="add_symptom.php" class="add-medication-link">
     <span class="material-symbols-outlined">add_circle</span>
-    <span class="link-text"><?php echo $translations['addMedic']; ?></span>
+    <span class="link-text">Ajouter un symptôme</span>
 </a>
 <br/>
     <table class="table table-striped">

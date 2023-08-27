@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 $url = "http://localhost:8080/api";
 include('translations/translation.php');
 
@@ -24,8 +26,6 @@ if (curl_errno($ch)) {
 $response = json_decode($response, true);
 $id_name = $response['id'];
 echo 'id : ' . $id_name;
-//console_log($id_name);
-
 
 /*Description des maladies*/
 $url_desc = $url . '/descriptions' . '?nomFr=' . $_POST['diseaseDescriptionFR'] . '&nomEn=' . $_POST['diseaseDescriptionEN'];

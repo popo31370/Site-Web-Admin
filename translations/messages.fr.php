@@ -26,7 +26,7 @@ return [
     "french"=> 'Français',
     "english"=> 'Anglais',
     "symptoms"=> 'Symptômes',
-    "names"=> 'Noms',
+    "diseases"=> 'Maladies',
     "medications"=> 'Médicaments',
     "description"=> 'Description',
     "sympDesc"=> 'Description Symptômes',
@@ -43,5 +43,21 @@ return [
     //Commun
     'id' => 'Id',
     'actions' => 'Actions',
+    //Page maladie
+    'addDisease' => 'Ajouter une maladie',
+    'editDisease' => 'Edition de la maladie',
+    'diseaseNameFr' => 'Nom de la maladie (FR):',
+    'diseaseNameEn' => 'Nom de la maladie (EN):',
+    'descDiseaseFR' => 'Description de la maladie (FR):',
+    'descDiseaseEN' => 'Description de la maladie (EN):',
+    'descMedicFR' => 'Description des médicaments (FR):',
+    'descMedicEN' => 'Description des médicaments (EN):',
+    'descSympFR' => 'Description des symptômes (FR):',
+    'descSympEN' => 'Description des symptômes (EN):',
+    'descWhoFR' => 'Description des personnes à risque (FR):',
+    'descWhoEN' => 'Description des personnes à risque (EN):',
+    'add' => 'Ajouter',
+    'addDisease' => 'Ajouter une maladie',
+    'diseaseList' => 'Liste des maladies',
 ];
 ?>
