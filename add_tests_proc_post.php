@@ -16,6 +16,10 @@ $url = $url . '/?nomFr=' . $_POST['nomFr'] . '&nomEn=' . $_POST['nomEn'];
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+
+$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
 $response = curl_exec($ch);
 // Vérification des erreurs
 if (curl_errno($ch)) {

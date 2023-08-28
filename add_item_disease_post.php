@@ -15,6 +15,10 @@ if(isset($_POST['id'])) {
     $url= $url . 'disease/' . $_POST['id'];
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+
+    $headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
     $response = curl_exec($ch);
     $response= json_decode($response,true);
     $id_name=$response['name']['id'];

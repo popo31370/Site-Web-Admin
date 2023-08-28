@@ -6,7 +6,8 @@ $url = "http://localhost:8080/api/";
 // Configuration de la requête cURL
 $ch = curl_init();
 
-
+$headers = array('X-API-KEY: 3cfa26d6-5c52-480b-90ea-7aee7b40a5d6');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 // Exécution de la requête GET
 
 

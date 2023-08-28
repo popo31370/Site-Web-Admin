@@ -61,7 +61,7 @@ if ($response) {
 
 <div class="container mt-5">
 
-        <h2 class="mb-4">Ajouter un médicament à la maladie ...</h2>
+        <h2 class="mb-4">Ajouter un médicament à la maladie</h2>
 
         <form action="add_item_disease_post.php" method="post">
             <input id="id" name="id" type="hidden" value="<?= $_GET['id']; ?>">
